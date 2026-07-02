@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: heart-disease-prediction-api
+    env: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: 8000
+      - key: APP_NAME
+        value: "Heart Disease Prediction API"
+      - key: VERSION
+        value: "1.0.0"
+      - key: DEBUG
+        value: "False"
+      - key: LOG_LEVEL
+        value: "INFO"
+      - key: API_KEY
+        generateValue: true

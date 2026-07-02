@@ -163,9 +163,9 @@ In the context of clinical datasets with limited overall sample sizes, robust li
 
 ---
 
-## 🚀 Installation
+## 🚀 Installation (Local Pipeline)
 
-Follow these instructions to quickly spin up the environment and execute the pipeline natively.
+Follow these instructions to execute the underlying ML pipeline locally.
 
 ```bash
 # 1. Clone the repository
@@ -190,25 +190,75 @@ python src/main.py
 
 ---
 
-## 🐳 Docker Deployment (API)
+## ☁️ Live API & Production Deployment
 
-The Machine Learning predictive engine is fully containerized as a robust FastAPI web server, meaning it can be deployed agnostically to any server without local dependency clashes.
+The underlying predictive pipeline is fully wrapped in a **Production-Grade FastAPI Backend**. It features singleton model loading, strict Pydantic input schema validation, asynchronous prediction execution, and `x-api-key` header authentication.
+
+### 🔗 Public Endpoints
+- **Health Check**: `GET /health`
+- **Swagger Documentation**: `GET /docs` *(Requires `DEBUG=True` in environment variables)*
+
+### 🔒 Protected Endpoints (Requires `x-api-key` Header)
+- **Prediction Engine**: `POST /predict`
+
+### 💡 Example API Request (cURL)
+```bash
+curl -X 'POST' \
+  'http://localhost:8000/predict' \
+  -H 'accept: application/json' \
+  -H 'x-api-key: your_secret_api_key' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "age": 55,
+  "sex": 1,
+  "cholst pain": 3,
+  "RestBP": 140,
+  "CholL": 250,
+  "FastBS": 0,
+  "RESTECG": 1,
+  "Thalach": 150,
+  "EXAng": 0,
+  "OLDPeak": 1.5,
+  "SLOPE": 2
+}'
+```
+
+### 📩 Example JSON Response
+```json
+{
+  "status": "success",
+  "prediction": 1,
+  "probability": 0.8813,
+  "message": null
+}
+```
+
+---
+
+## 🐳 Docker Containerization
+
+The backend is fully containerized for seamless deployment.
 
 ```bash
-# 1. Clone the repository
-git clone https://github.com/itshavex/heart-disease-prediction.git
-cd heart-disease-prediction
-
-# 2. Setup your local environment secrets
+# 1. Setup your local environment secrets
 cp .env.example .env
 # Edit .env and supply your secure API_KEY
 
-# 3. Build and launch the container securely
+# 2. Build and launch the container securely
 docker-compose up -d --build
 
 # The API is now actively listening on http://localhost:8000
-# Append the header `x-api-key: your_key` to access /predict
 ```
+
+---
+
+## 🚀 One-Click Render Deployment
+
+The repository includes a native `render.yaml` Infrastructure-as-Code file.
+
+1. Create a free account on [Render.com](https://render.com/).
+2. Connect your GitHub account and select this repository.
+3. Render will automatically parse the `render.yaml` file, build the Docker container, provision the environment variables, generate a highly secure `API_KEY`, and expose your application via HTTPS!
 
 ---
 
@@ -224,9 +274,7 @@ docker-compose up -d --build
 - **Hyperparameter Optimization**: Integration of Optuna for Bayesian tuning.
 - **Algorithm Expansion**: Incorporating `LightGBM` and `CatBoost`.
 - **Deep Learning**: Modeling the clinical feature space using Deep Neural Networks.
-- **FastAPI / Streamlit**: Serving the predictive artifacts via a REST endpoint and web dashboard.
-- **Docker Integration**: Containerizing the entire pipeline for agnostic execution.
-- **CI/CD & Cloud Deployment**: Deploying the system utilizing GitHub Actions and AWS/GCP.
+- **CI/CD Configuration**: Deploying automated testing utilizing GitHub Actions.
 
 ---
 
