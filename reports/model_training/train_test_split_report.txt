@@ -1,0 +1,25 @@
+============================================================
+             TRAIN-TEST SPLIT REPORT               
+============================================================
+
+Timestamp: 2026-07-02 21:10:21
+
+--- 1. Dataset Dimensions ---
+Original Dataset Shape: (303, 12)
+Training Shape: (242, 11)
+Testing Shape: (61, 11)
+
+--- 2. Split Proportions ---
+Training Percentage: 79.87%
+Testing Percentage: 20.13%
+
+--- 3. Target Distribution (y_train) ---
+Normalized Class Proportions:
+Target Label
+1    0.545455
+0    0.454545
+
+--- 4. Configuration ---
+Random State: 42
+Stratification: Enabled (y parameter)
+Cross Validation Configuration: StratifiedKFold (n_splits=5, shuffle=True)

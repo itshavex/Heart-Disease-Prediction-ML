@@ -1,0 +1,40 @@
+==================================================
+      SUPPORT VECTOR MACHINE TRAINING REPORT      
+==================================================
+
+Timestamp: 2026-07-02 22:00:05
+
+--- 1. Dataset Shape ---
+Training Shape: (242, 11)
+Testing Shape: (61, 11)
+
+--- 2. Model Configuration ---
+Kernel: rbf
+C: 1.0
+Gamma: scale
+Probability: True
+Random State: 42
+
+--- 3. Cross Validation (5-Fold Stratified) ---
+Mean CV Accuracy: 0.7929 (+/- 0.0766)
+
+--- 4. Test Set Evaluation Metrics ---
+Accuracy: 0.7377
+Precision: 0.7179
+Recall: 0.8485
+F1 Score: 0.7778
+ROC-AUC: 0.8079
+
+--- 5. Classification Report ---
+              precision    recall  f1-score   support
+
+           0       0.77      0.61      0.68        28
+           1       0.72      0.85      0.78        33
+
+    accuracy                           0.74        61
+   macro avg       0.75      0.73      0.73        61
+weighted avg       0.74      0.74      0.73        61
+
+--- 6. Confusion Matrix ---
+[[17 11]
+ [ 5 28]]

@@ -1,0 +1,64 @@
+============================================================
+              SHAP SUMMARY EXPLAINABILITY REPORT              
+============================================================
+
+--- Logistic Regression ---
+Number of Samples: 61
+Number of Features: 11
+Top 10 Important Features (Mean Absolute SHAP):
+  num__cholst pain: 0.9752
+  num__sex: 0.7604
+  num__Thalach: 0.5031
+  num__OLDPeak: 0.4729
+  num__EXAng: 0.4105
+  num__CholL: 0.3990
+  num__SLOPE: 0.2433
+  num__RESTECG: 0.1467
+  num__age: 0.1257
+  num__RestBP: 0.1152
+
+--- Support Vector Machine ---
+Number of Samples: 61
+Number of Features: 11
+Top 10 Important Features (Mean Absolute SHAP):
+  num__cholst pain: 0.1192
+  num__EXAng: 0.0750
+  num__OLDPeak: 0.0748
+  num__Thalach: 0.0636
+  num__sex: 0.0585
+  num__CholL: 0.0413
+  num__SLOPE: 0.0334
+  num__age: 0.0181
+  num__RESTECG: 0.0153
+  num__RestBP: 0.0121
+
+--- Random Forest ---
+Number of Samples: 61
+Number of Features: 11
+Top 10 Important Features (Mean Absolute SHAP):
+  num__cholst pain: 0.1430
+  num__OLDPeak: 0.0818
+  num__Thalach: 0.0596
+  num__EXAng: 0.0590
+  num__SLOPE: 0.0558
+  num__sex: 0.0526
+  num__CholL: 0.0363
+  num__age: 0.0323
+  num__RESTECG: 0.0176
+  num__RestBP: 0.0173
+
+--- XGBoost ---
+Number of Samples: 61
+Number of Features: 11
+Top 10 Important Features (Mean Absolute SHAP):
+  num__cholst pain: 1.6226
+  num__CholL: 0.9851
+  num__OLDPeak: 0.9119
+  num__sex: 0.8881
+  num__Thalach: 0.8440
+  num__age: 0.5558
+  num__EXAng: 0.4952
+  num__RestBP: 0.4281
+  num__RESTECG: 0.2973
+  num__SLOPE: 0.2754
+

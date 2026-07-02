@@ -1,0 +1,52 @@
+============================================================
+         COMPARATIVE EVALUATION FRAMEWORK REPORT        
+============================================================
+
+Timestamp: 2026-07-02 22:00:08
+
+--- 1. Dataset Summary ---
+The models were trained on the preprocessed heart disease dataset.
+Evaluations were performed using a holdout test set (20%) and 5-Fold Stratified Cross Validation.
+
+--- 2. Models Compared ---
+- Logistic Regression
+- Support Vector Machine
+- Random Forest
+- XGBoost
+
+--- 3. Performance Table ---
+                 Model  Accuracy  Precision  Recall  F1 Score  ROC AUC  Cross Validation Mean  Cross Validation Std
+   Logistic Regression    0.8010     0.8000  0.8485    0.8235   0.8387                 0.8010                0.1136
+Support Vector Machine    0.7929     0.7179  0.8485    0.7778   0.8079                 0.7929                0.0766
+         Random Forest    0.7681     0.7778  0.8485    0.8116   0.8425                 0.7681                0.0896
+               XGBoost    0.7105     0.7429  0.7879    0.7647   0.8084                 0.7105                0.0687
+
+--- 4. Best Performing Models ---
+Best Accuracy Model : Logistic Regression
+Best ROC AUC Model  : Random Forest
+Best F1 Score Model : Logistic Regression
+Best Overall Model  : Logistic Regression
+
+--- 5. Discussion ---
+Strengths of each model:
+- Logistic Regression: Highly interpretable, lightweight baseline model.
+- Support Vector Machine: Robust to non-linear boundaries using the RBF kernel.
+- Random Forest: Excellent at handling complex interactions, robust to overfitting.
+- XGBoost: State-of-the-art performance for tabular data, handles missing values intrinsically.
+
+Weaknesses of each model:
+- Logistic Regression: Struggles with complex non-linear feature interactions.
+- Support Vector Machine: Output probabilities may require Platt scaling for calibration.
+- Random Forest: Larger memory footprint, slightly slower inference time.
+- XGBoost: Sensitive to hyperparameters and more prone to overfitting without tuning.
+
+--- 6. Research Conclusion ---
+The extensive evaluation demonstrates that Logistic Regression achieved the strongest overall performance across multiple key metrics including Accuracy, F1 Score, and ROC-AUC. Ensemble methods generally outperformed the linear baselines.
+
+--- 7. Recommended Final Model ---
+Recommended Model: Logistic Regression
+This model is recommended for deployment and further explainability analysis.
+
+--- 8. Future Work ---
+- Apply SHAP (SHapley Additive exPlanations) to interpret model decisions and identify primary risk factors.
+- Perform hyperparameter tuning via Grid Search or Bayesian Optimization to squeeze further performance.

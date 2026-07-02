@@ -1,0 +1,12 @@
+Feature,Removal Step,Reason,Metric Used
+num__age,Retained,Important Predictor,-
+num__sex,Retained,Important Predictor,-
+num__cholst pain,Retained,Important Predictor,-
+num__RestBP,Retained,Important Predictor,-
+num__CholL,Retained,Important Predictor,-
+num__FastBS,Retained,Important Predictor,-
+num__RESTECG,Retained,Important Predictor,-
+num__Thalach,Retained,Important Predictor,-
+num__EXAng,Retained,Important Predictor,-
+num__OLDPeak,Retained,Important Predictor,-
+num__SLOPE,Retained,Important Predictor,-

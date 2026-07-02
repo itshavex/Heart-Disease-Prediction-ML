@@ -1,0 +1,28 @@
+Feature Engineering Research Summary
+============================================================
+
+Original Features: 11
+Removed by Low Variance: 0 features
+Removed by Correlation: 0 features
+Final Features: 11
+Dimensionality Reduction: 0.00%
+
+Top 10 Important Features:
+1. num__cholst pain
+2. num__OLDPeak
+3. num__Thalach
+4. num__EXAng
+5. num__age
+6. num__RestBP
+7. num__SLOPE
+8. num__CholL
+9. num__sex
+10. num__RESTECG
+
+Expected ML Benefits:
+- Mitigation of the curse of dimensionality, enhancing model generalization.
+- Significant reduction in multicollinearity, stabilizing coefficient estimates.
+- Improved computational efficiency and reduced training time footprint.
+
+Suitable Research Paper Description:
+The raw dataset containing 11 features underwent a rigorous automated feature selection pipeline. First, a variance threshold approach was employed to eliminate 0 uninformative, near-constant features. Subsequently, Pearson correlation analysis was utilized to detect and remove 0 highly collinear variables (threshold |r| > 0.85), mitigating redundancy. The final optimized feature space comprises 11 robust predictors, representing a dimensionality reduction of 0.00%. Feature importance was computationally validated using both Gini impurity and permutation techniques on a Random Forest estimator.

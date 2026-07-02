@@ -1,0 +1,10 @@
+Feature Engineering Execution Metrics
+==================================================
+
+Original Shape: (303, 12)
+Final Shape: (303, 12)
+Total Removed: 0
+Reduction %: 0.00%
+Processing Time: 4.8529 seconds
+Memory Usage Before: 0.0279 MB
+Memory Usage After: 0.0279 MB

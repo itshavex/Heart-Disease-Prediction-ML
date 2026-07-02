@@ -1,0 +1,170 @@
+============================================================
+           DATASET QUALITY ASSESSMENT REPORT          
+============================================================
+
+------------------------------------------------------------
+--- 1. Dataset Shape & Dimensions ---
+Shape            : (303, 12)
+Number of Rows   : 303
+Number of Columns: 12
+
+------------------------------------------------------------
+--- 2. First 5 Rows ---
+   age  sex  cholst pain  RestBP  CholL  FastBS  RESTECG  Thalach  EXAng  OLDPeak  SLOPE  Target Label
+0   63    1            3     145    233       1        0      150      0      2.3      0             1
+1   37    1            2     130    250       0        1      187      0      3.5      0             1
+2   41    0            1     130    204       0        0      172      0      1.4      2             1
+3   56    1            1     120    236       0        1      178      0      0.8      2             1
+4   57    0            0     120    354       0        1      163      1      0.6      2             1
+
+------------------------------------------------------------
+--- 3. Last 5 Rows ---
+     age  sex  cholst pain  RestBP  CholL  FastBS  RESTECG  Thalach  EXAng  OLDPeak  SLOPE  Target Label
+298   57    0            0     140    241       0        1      123      1      0.2      1             0
+299   45    1            3     110    264       0        1      132      0      1.2      1             0
+300   68    1            0     144    193       1        1      141      0      3.4      1             0
+301   57    1            0     130    131       0        1      115      1      1.2      1             0
+302   57    0            1     130    236       0        0      174      0      0.0      1             0
+
+------------------------------------------------------------
+--- 4. Column Names ---
+age, sex, cholst pain, RestBP, CholL, FastBS, RESTECG, Thalach, EXAng, OLDPeak, SLOPE, Target Label
+
+------------------------------------------------------------
+--- 5. Data Types ---
+age               int64
+sex               int64
+cholst pain       int64
+RestBP            int64
+CholL             int64
+FastBS            int64
+RESTECG           int64
+Thalach           int64
+EXAng             int64
+OLDPeak         float64
+SLOPE             int64
+Target Label      int64
+
+------------------------------------------------------------
+--- 5.1 Data Type Summary ---
+Numeric Columns    : 12
+Categorical Columns: 0
+Boolean Columns    : 0
+Other Columns      : 0
+
+------------------------------------------------------------
+--- 5.2 Dataset Memory Usage ---
+Index            132
+age             2424
+sex             2424
+cholst pain     2424
+RestBP          2424
+CholL           2424
+FastBS          2424
+RESTECG         2424
+Thalach         2424
+EXAng           2424
+OLDPeak         2424
+SLOPE           2424
+Target Label    2424
+
+Total Memory Usage: 0.0279 MB
+
+------------------------------------------------------------
+--- 6. Missing Values Analysis ---
+              Missing Count  Missing Percentage (%)
+age                       0                     0.0
+sex                       0                     0.0
+cholst pain               0                     0.0
+RestBP                    0                     0.0
+CholL                     0                     0.0
+FastBS                    0                     0.0
+RESTECG                   0                     0.0
+Thalach                   0                     0.0
+EXAng                     0                     0.0
+OLDPeak                   0                     0.0
+SLOPE                     0                     0.0
+Target Label              0                     0.0
+
+------------------------------------------------------------
+--- 7. Duplicate Rows Analysis ---
+Total Duplicate Rows: 1
+Duplicate Percentage: 0.3300%
+
+------------------------------------------------------------
+--- 8. Unique Values per Column ---
+age              41
+sex               2
+cholst pain       4
+RestBP           49
+CholL           152
+FastBS            2
+RESTECG           3
+Thalach          91
+EXAng             2
+OLDPeak          40
+SLOPE             3
+Target Label      2
+
+------------------------------------------------------------
+--- 8.1 Constant Columns Detection ---
+No constant columns detected.
+
+------------------------------------------------------------
+--- 8.2 High Cardinality Categorical Columns (>50 unique values) ---
+No high cardinality categorical columns detected.
+
+------------------------------------------------------------
+--- 8.3 Low Variance Numeric Columns Detection (Variance < 0.01) ---
+No low variance numeric columns detected.
+
+------------------------------------------------------------
+--- 8.4 Outlier Summary (using IQR Method) ---
+RestBP: 9 outliers (2.97%)
+CholL: 5 outliers (1.65%)
+FastBS: 45 outliers (14.85%)
+Thalach: 1 outliers (0.33%)
+OLDPeak: 5 outliers (1.65%)
+
+------------------------------------------------------------
+--- 8.5 Correlation Summary (Top 10 Highest Absolute Correlations) ---
+SLOPE - OLDPeak: 0.5775
+Target Label - EXAng: 0.4368
+Target Label - cholst pain: 0.4338
+Target Label - OLDPeak: 0.4307
+Target Label - Thalach: 0.4217
+Thalach - age: 0.3985
+EXAng - cholst pain: 0.3943
+SLOPE - Thalach: 0.3868
+EXAng - Thalach: 0.3788
+Target Label - SLOPE: 0.3459
+
+------------------------------------------------------------
+--- 9. Statistical Summary (Describe) ---
+              age         sex  cholst pain      RestBP       CholL      FastBS     RESTECG     Thalach       EXAng     OLDPeak       SLOPE  Target Label
+count  303.000000  303.000000   303.000000  303.000000  303.000000  303.000000  303.000000  303.000000  303.000000  303.000000  303.000000    303.000000
+mean    54.366337    0.683168     0.966997  131.623762  246.264026    0.148515    0.528053  149.646865    0.326733    1.039604    1.399340      0.544554
+std      9.082101    0.466011     1.032052   17.538143   51.830751    0.356198    0.525860   22.905161    0.469794    1.161075    0.616226      0.498835
+min     29.000000    0.000000     0.000000   94.000000  126.000000    0.000000    0.000000   71.000000    0.000000    0.000000    0.000000      0.000000
+25%     47.500000    0.000000     0.000000  120.000000  211.000000    0.000000    0.000000  133.500000    0.000000    0.000000    1.000000      0.000000
+50%     55.000000    1.000000     1.000000  130.000000  240.000000    0.000000    1.000000  153.000000    0.000000    0.800000    1.000000      1.000000
+75%     61.000000    1.000000     2.000000  140.000000  274.500000    0.000000    1.000000  166.000000    1.000000    1.600000    2.000000      1.000000
+max     77.000000    1.000000     3.000000  200.000000  564.000000    1.000000    2.000000  202.000000    1.000000    6.200000    2.000000      1.000000
+
+------------------------------------------------------------
+--- 10. Target Column Distribution & Balance ---
+[NOTE] Target column 'target' not found in the dataset.
+       Available columns are: age, sex, cholst pain, RestBP, CholL, FastBS, RESTECG, Thalach, EXAng, OLDPeak, SLOPE, Target Label
+
+------------------------------------------------------------
+--- 11. Dataset Health Score (out of 100) ---
+Overall Health Score: 99.34 / 100
+
+Deductions Breakdown:
+- Missing Values   : -0.00 pts
+- Duplicate Rows   : -0.66 pts
+- Constant Columns : -0.00 pts
+
+============================================================
+          END OF DATASET QUALITY REPORT               
+============================================================

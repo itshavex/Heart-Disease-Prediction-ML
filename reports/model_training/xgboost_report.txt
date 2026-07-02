@@ -1,0 +1,42 @@
+==================================================
+      XGBOOST TRAINING REPORT      
+==================================================
+
+Timestamp: 2026-07-02 22:00:07
+
+--- 1. Dataset Shape ---
+Training Shape: (242, 11)
+Testing Shape: (61, 11)
+
+--- 2. Model Configuration ---
+random_state: 42
+n_jobs: -1
+eval_metric: logloss
+
+--- 3. Cross Validation (5-Fold Stratified) ---
+Mean CV Accuracy: 0.7105 (+/- 0.0687)
+
+--- 4. Test Set Evaluation Metrics ---
+Accuracy: 0.7377
+Precision: 0.7429
+Recall: 0.7879
+F1 Score: 0.7647
+ROC-AUC: 0.8084
+
+--- 5. Classification Report ---
+              precision    recall  f1-score   support
+
+           0       0.73      0.68      0.70        28
+           1       0.74      0.79      0.76        33
+
+    accuracy                           0.74        61
+   macro avg       0.74      0.73      0.73        61
+weighted avg       0.74      0.74      0.74        61
+
+--- 6. Confusion Matrix ---
+[[19  9]
+ [ 7 26]]
+
+--- 7. Research Conclusions ---
+XGBoost typically provides state-of-the-art performance for tabular data.
+Further hyperparameter tuning (e.g., learning rate, max depth) is recommended.
