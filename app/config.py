@@ -14,6 +14,7 @@ class Settings(BaseSettings):
     port: int = 8000
     debug: bool = False
     log_level: str = "INFO"
+    api_key: str = "change_this_secret"
 
     model_config = SettingsConfigDict(
         env_file=".env",

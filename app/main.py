@@ -13,6 +13,8 @@ app = FastAPI(
     version=settings.version,
     description="Research-grade Machine Learning API for heart disease prediction.",
     debug=settings.debug,
+    docs_url="/docs" if settings.debug else None,
+    redoc_url=None,
     contact={
         "name": "Shashwat Tiwari",
         "url": "https://github.com/itshavex"

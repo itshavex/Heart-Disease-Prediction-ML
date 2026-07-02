@@ -2,10 +2,11 @@
 API endpoint routing definitions.
 """
 import logging
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Depends
 
 from app.schemas import HealthResponse, PredictionRequest, PredictionResponse
 from app.predictor import predict
+from app.security import verify_api_key
 
 logger = logging.getLogger(__name__)
 
@@ -21,7 +22,7 @@ async def health_check():
     """Health check endpoint for system monitoring."""
     return HealthResponse(status="healthy", version="1.0.0")
 
-@router.post("/predict", response_model=PredictionResponse, tags=["Prediction"])
+@router.post("/predict", response_model=PredictionResponse, tags=["Prediction"], dependencies=[Depends(verify_api_key)])
 async def predict_heart_disease(request: PredictionRequest):
     """
     Generate a heart disease prediction using the trained Machine Learning pipeline.
