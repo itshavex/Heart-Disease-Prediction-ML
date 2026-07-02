@@ -9,9 +9,21 @@ import joblib
 # Ensure src/ is in the path so we can cleanly reuse the preprocessing pipeline
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.exceptions import RequestValidationError
+from starlette.exceptions import HTTPException as StarletteHTTPException
+
 from src.data_loader import load_dataset
 from src.preprocessing import preprocess_dataset
 from src.feature_engineering import perform_feature_engineering
+
+from app.middleware import RequestLoggingMiddleware
+from app.exceptions import (
+    global_exception_handler, 
+    http_exception_handler, 
+    validation_exception_handler
+)
 
 logger = logging.getLogger(__name__)
 
@@ -52,3 +64,24 @@ def load_artifacts():
     except Exception as e:
         logger.error(f"Failed to load artifacts during startup: {e}", exc_info=True)
         raise
+
+def register_middleware(app: FastAPI):
+    """Register all application middlewares."""
+    logger.info("Registering API middleware...")
+    app.add_middleware(RequestLoggingMiddleware)
+    
+    # Enable CORS for localhost development
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["http://localhost", "http://localhost:8000", "http://127.0.0.1", "http://127.0.0.1:8000"],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
+
+def register_exception_handlers(app: FastAPI):
+    """Register robust, production-grade exception handlers."""
+    logger.info("Registering global exception handlers...")
+    app.add_exception_handler(RequestValidationError, validation_exception_handler)
+    app.add_exception_handler(StarletteHTTPException, http_exception_handler)
+    app.add_exception_handler(Exception, global_exception_handler)

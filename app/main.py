@@ -1,19 +1,10 @@
 """
 FastAPI application core execution orchestrator.
 """
-import logging
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-
+from app.logger import logger
 from app.api.routes import router
-from app.startup import load_artifacts
-
-# Configure root logger
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-)
-logger = logging.getLogger(__name__)
+from app.startup import load_artifacts, register_middleware, register_exception_handlers
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -26,14 +17,9 @@ app = FastAPI(
     }
 )
 
-# Configure CORS Middleware
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# Register application configurations
+register_middleware(app)
+register_exception_handlers(app)
 
 # Startup event handler
 @app.on_event("startup")
