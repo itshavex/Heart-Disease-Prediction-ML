@@ -3,11 +3,15 @@ Centralized logging configuration for production FastAPI backend.
 """
 import logging
 import sys
+from app.config import settings
 
 def setup_logger():
     # Get the root logger
     logger = logging.getLogger()
-    logger.setLevel(logging.INFO)
+    
+    # Parse log level from config
+    level = getattr(logging, settings.log_level.upper(), logging.INFO)
+    logger.setLevel(level)
     
     # Clear any existing handlers
     if logger.hasHandlers():
@@ -20,7 +24,7 @@ def setup_logger():
     
     # Configure console handler
     ch = logging.StreamHandler(sys.stdout)
-    ch.setLevel(logging.INFO)
+    ch.setLevel(level)
     ch.setFormatter(formatter)
     
     logger.addHandler(ch)

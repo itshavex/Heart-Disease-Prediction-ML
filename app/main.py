@@ -2,15 +2,17 @@
 FastAPI application core execution orchestrator.
 """
 from fastapi import FastAPI
+from app.config import settings
 from app.logger import logger
 from app.api.routes import router
 from app.startup import load_artifacts, register_middleware, register_exception_handlers
 
-# Initialize FastAPI app
+# Initialize FastAPI app dynamically via environment config
 app = FastAPI(
-    title="Heart Disease Prediction API",
-    version="1.0.0",
+    title=settings.app_name,
+    version=settings.version,
     description="Research-grade Machine Learning API for heart disease prediction.",
+    debug=settings.debug,
     contact={
         "name": "Shashwat Tiwari",
         "url": "https://github.com/itshavex"
