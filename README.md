@@ -186,6 +186,9 @@ pip install -r requirements.txt
 
 # 5. Execute the entire pipeline
 python src/main.py
+
+# 6. (Optional) Run the Streamlit Frontend UI
+streamlit run frontend/app.py
 ```
 
 ---
