@@ -146,22 +146,20 @@ In the context of clinical datasets with limited overall sample sizes, robust li
 
 ## 📸 Screenshots
 
-*(Replace with actual paths when publishing to GitHub)*
-
 ### Exploratory Data Analysis (EDA)
-![EDA Placeholder](https://via.placeholder.com/800x400.png?text=Exploratory+Data+Analysis+Visualizations)
+![Exploratory Data Analysis](assets/images/eda.png)
 
 ### Model Confusion Matrix
-![Confusion Matrix Placeholder](https://via.placeholder.com/400x400.png?text=Confusion+Matrix)
+![Confusion Matrix](assets/images/confusion_matrix.png)
 
 ### ROC Curve Analysis
-![ROC Curve Placeholder](https://via.placeholder.com/600x400.png?text=ROC+Curve+Comparison)
+![ROC Curve](assets/images/roc_curve.png)
 
 ### Model Comparison Metrics
-![Model Comparison Placeholder](https://via.placeholder.com/800x400.png?text=Model+Comparison+Dashboard)
+![Model Comparison](assets/images/model_comparison.png)
 
 ### SHAP Summary Explainer
-![SHAP Placeholder](https://via.placeholder.com/800x500.png?text=SHAP+Summary+Explainability+Plot)
+![SHAP Summary Explainer](assets/images/shap_summary.png)
 
 ---
 
