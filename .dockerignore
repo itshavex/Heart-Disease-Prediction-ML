@@ -1,0 +1,11 @@
+__pycache__
+*.pyc
+*.pyo
+.git
+.venv
+venv
+env
+logs
+reports
+notebooks
+.env

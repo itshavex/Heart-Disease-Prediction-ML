@@ -190,6 +190,28 @@ python src/main.py
 
 ---
 
+## 🐳 Docker Deployment (API)
+
+The Machine Learning predictive engine is fully containerized as a robust FastAPI web server, meaning it can be deployed agnostically to any server without local dependency clashes.
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/itshavex/heart-disease-prediction.git
+cd heart-disease-prediction
+
+# 2. Setup your local environment secrets
+cp .env.example .env
+# Edit .env and supply your secure API_KEY
+
+# 3. Build and launch the container securely
+docker-compose up -d --build
+
+# The API is now actively listening on http://localhost:8000
+# Append the header `x-api-key: your_key` to access /predict
+```
+
+---
+
 ## 🔬 Research Contributions
 - **Comparative Evaluation of four ML Models**: Comprehensive baselining of algorithms.
 - **Explainable AI using SHAP**: Complete transparency into model logic.
